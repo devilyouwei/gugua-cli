@@ -1,0 +1,108 @@
+{
+    "name": "gugua-cli",
+    "version": "0.0.1",
+    "description": "An electron-nuxt project",
+    "main": "./dist/main/index.js",
+    "scripts": {
+        "dev": "node .electron-nuxt/dev.js",
+        "build": "node .electron-nuxt/build.js",
+        "test": "",
+        "lint:js": "eslint --ext \".js,.vue\" -f ./node_modules/eslint-friendly-formatter ./src",
+        "lint:style": "stylelint \"**/*.{vue,css}\"",
+        "lint": "yarn lint:js && yarn lint:style",
+        "lint:fix": "yarn lint:js --fix && yarn lint:style --fix",
+        "preinstall": "node .electron-nuxt/check-engines.js",
+        "postinstall": "electron-builder install-app-deps & yarn run lint:fix"
+    },
+    "keywords": [],
+    "author": "devilyouwei <devilyouwei@gmail.com>",
+    "license": "MIT",
+    "homepage": "https://www.gugua.network",
+    "engines": {
+        "node": ">=12.13.0"
+    },
+    "resolutions": {
+        "@types/node": "12.12.6"
+    },
+    "devDependencies": {
+        "@mdi/font": "5.9.55",
+        "@nuxtjs/eslint-config": "^6.0.0",
+        "@nuxtjs/eslint-module": "^3.0.2",
+        "@nuxtjs/stylelint-module": "^4.0.0",
+        "@xpda-dev/core": "^0.1.6",
+        "@xpda-dev/electron-builder": "^0.2.1",
+        "@xpda-dev/electron-launcher": "^0.3.0",
+        "@xpda-dev/webpack-step": "^0.1.2",
+        "browser-env": "3.3.0",
+        "cross-env": "7.0.3",
+        "deepmerge": "4.2.2",
+        "electron-builder": "22.10.5",
+        "electron-devtools-installer": "3.1.1",
+        "eslint": "^7.23.0",
+        "eslint-config-prettier": "^8.1.0",
+        "eslint-friendly-formatter": "4.0.1",
+        "eslint-loader": "4.0.2",
+        "eslint-plugin-nuxt": "^2.0.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "husky": "^6.0.0",
+        "lint-staged": "^10.5.4",
+        "native-ext-loader": "2.3.0",
+        "prettier": "^2.2.1",
+        "roboto-fontface": "0.10.0",
+        "stylelint": "^13.12.0",
+        "stylelint-config-prettier": "^8.0.2",
+        "stylelint-config-standard": "^21.0.0",
+        "webpack": "4.44.2",
+        "webpack-node-externals": "2.5.2",
+        "boxicons": "^2.0.7",
+        "electron": "12.0.2",
+        "nuxt": "2.15.4",
+        "qrcode": "^1.4.4",
+        "vue-qrcode": "^0.3.5",
+        "balm-ui": "^8.25.0",
+        "vuesax": "^4.0.1-alpha.25"
+    },
+    "dependencies": {},
+    "prettier": {
+        "useTabs": false,
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true,
+        "jsxBracketSameLine": true,
+        "jsxSingleQuote": false,
+        "bracketSpacing": true,
+        "trailingComma": "none",
+        "arrowParens": "avoid",
+        "htmlWhitespaceSensitivity": "ignore",
+        "proseWrap": "always"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true,
+            "browser": true,
+            "es6": true,
+            "commonjs": true
+        },
+        "extends": [
+            "eslint:recommended",
+            "@nuxtjs",
+            "plugin:prettier/recommended",
+            "plugin:nuxt/recommended"
+        ],
+        "rules": {
+            "no-console": 0,
+            "no-unused-vars": 1
+        }
+    },
+    "lint-staged": {
+        "*.{js,vue}": "eslint",
+        "*.{css,vue}": "stylelint"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "lint-staged"
+        }
+    }
+}
