@@ -9,3 +9,4 @@ app.on('window-all-closed', function () {
 
 // Load here all startup windows
 require('./mainWindow')
+require('./handler')

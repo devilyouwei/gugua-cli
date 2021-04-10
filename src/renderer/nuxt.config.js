@@ -11,7 +11,11 @@ module.exports = {
         title: 'gugua-cli',
         meta: [
             { charset: 'utf-8' },
-            { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+            {
+                name: 'viewport',
+                content:
+                    'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no'
+            }
         ]
     },
     loading: false,
@@ -22,7 +26,6 @@ module.exports = {
         'balm-ui/dist/balm-ui.css'
     ],
     plugins: [
-        { ssr: true, src: '@/plugins/icons.js' },
         { ssr: true, src: '@/plugins/vuesax' },
         { ssr: true, src: '@/plugins/balm-ui' }
     ],

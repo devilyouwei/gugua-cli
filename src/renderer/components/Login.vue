@@ -6,18 +6,22 @@
             Input your
             <b>Private Key</b>
             or upload your
-            <ui-button @click="usePrivKey = false">Mum Code</ui-button>
+            <vs-button class="pv-btn" transparent @click="usePrivKey = false">
+                Mum Code
+            </vs-button>
         </div>
         <div v-else class="tip">
             <ui-icon class="tip-icon">gpp_maybe</ui-icon>
             Upload your
             <b>Mum Code</b>
             or input your
-            <ui-button @click="usePrivKey = true">Private Key</ui-button>
+            <vs-button class="pv-btn" transparent @click="usePrivKey = true">
+                Private Key
+            </vs-button>
         </div>
         <div v-if="usePrivKey" class="input-box">
-            <ui-textfield input-type="textarea" rows="8" cols="40">
-                Your Private Key
+            <ui-textfield outlined input-type="textarea" rows="5" cols="30">
+                Private Key
             </ui-textfield>
         </div>
         <div v-else class="upload-box">
@@ -26,16 +30,25 @@
             </ui-file>
         </div>
         <div class="input-box">
-            <ui-textfield outlined with-leading-icon class="input">
-                Your Password
-                <template #before>
-                    <ui-textfield-icon>vpn_lock</ui-textfield-icon>
+            <vs-input
+                v-model="password"
+                color="#195bff"
+                type="password"
+                border
+                placeholder="Password"
+                class="input"
+            >
+                <template #icon>
+                    <i class="bx bx-lock-open-alt"></i>
                 </template>
-            </ui-textfield>
+            </vs-input>
         </div>
         <div class="btn-box">
-            <ui-button se raised class="btn">Sign In</ui-button>
-            <vs-button transparent class="tab-btn" @click="tab">
+            <vs-button class="btn">
+                <i class="bx bx-log-in">&nbsp;</i>
+                Sign In
+            </vs-button>
+            <vs-button success transparent class="tab-btn" @click="tab">
                 Go sign up&nbsp;
                 <i class="bx bxs-chevron-right"></i>
             </vs-button>
@@ -48,7 +61,8 @@ export default {
     data() {
         return {
             usePrivKey: false,
-            iconClass: 'password'
+            iconClass: 'password',
+            password: ''
         }
     },
     methods: {
@@ -61,30 +75,38 @@ export default {
 }
 </script>
 <style scoped>
-.login {
-    text-align: center;
-}
 .tip-icon {
     color: #f90;
+    font-size: 1.1vw;
+    line-height: 1.1vw;
 }
 .tip {
-    font-size: 1rem;
-    padding: 1rem 0;
+    font-size: 1.1vw;
+    line-height: 1.1vw;
+    padding: 1.5vh 0;
 }
 .upload-box {
-    width: 12rem;
+    width: 10vw;
+    height: 10vw;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 2vh;
+    transition: all 0.2s linear;
+}
+.upload-box:hover {
+    transform: scale(1.1);
 }
 .input-box {
-    padding: 1.5rem 0;
+    margin: 4vh 0;
 }
 .input {
-    width: 20rem;
+    width: 26vw !important;
+    margin: 2.5vh auto;
 }
 .btn {
-    width: 20rem;
-    height: 3.2rem;
+    width: 26vw;
+    height: 3vw;
+    margin: 1vh auto;
+    border-radius: 100rem;
 }
 .mdc-file {
     position: relative;
@@ -94,13 +116,16 @@ export default {
     border: 1px solid #ddd;
     border-radius: 3px;
     cursor: pointer;
-    background-color: #fff;
 }
 .qrcode-icon {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 70px;
+    font-size: 6vw;
+}
+.pv-btn {
+    display: inline-block;
+    font-weight: bold;
 }
 </style>

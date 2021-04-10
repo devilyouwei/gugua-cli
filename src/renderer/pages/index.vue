@@ -38,6 +38,7 @@ export default {
         }
     },
     mounted() {
+        this.$theme.primary = '#195BFF'
         const version = plus.version
         console.log(version)
         this.version = `${version.os}, node:${version.nodeVersion}, electron:${version.electronVersion}`
@@ -88,14 +89,11 @@ export default {
 }
 
 .title {
-    font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
-        BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-        sans-serif;
+    margin-top: 12.5vh;
     display: block;
-    font-weight: 300;
-    font-size: 2rem;
+    font-size: 2.2vw;
     color: #35495e;
-    letter-spacing: 1px;
+    letter-spacing: 0.1vw;
 }
 
 .head-icon {
@@ -103,14 +101,14 @@ export default {
     z-index: 99;
     width: 10rem;
     position: fixed;
-    top: 1rem;
-    right: 1rem;
+    top: 2vh;
+    right: 1vw;
 }
 .btn-box {
-    padding: 1rem 0;
+    padding: 1.2vh 0;
 }
 .tab-btn {
-    margin: 1rem 3rem auto auto;
+    margin: 2vh 2vw auto auto;
 }
 .info-box {
     position: fixed;
@@ -121,7 +119,7 @@ export default {
 .version {
     padding-right: 1%;
     text-align: right;
-    font-size: 0.9rem;
+    font-size: 1.1vw;
     color: #a9a9a9;
     font-style: italic;
 }
