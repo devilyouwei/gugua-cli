@@ -111,6 +111,9 @@ export default {
             password: ''
         }
     },
+    created() {
+        this.$theme.primary = '#46c93a'
+    },
     mounted() {
         this.message = this.tips[0]
     },
@@ -141,9 +144,10 @@ export default {
                     opt.text = res.msg
                 })
                 .catch(e => {
+                    console.error(e.message)
                     opt.color = 'danger'
                     opt.title = 'Fail to save'
-                    opt.text = e.message
+                    opt.text = 'Fail to save the QR code image!'
                 })
                 .finally(() => {
                     this.$vs.notification(opt)

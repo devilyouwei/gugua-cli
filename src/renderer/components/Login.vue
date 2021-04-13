@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <h1 class="title">Sign In</h1>
+        <h1 class="title">{{ $t('sign_in') }}</h1>
         <div v-if="usePrivKey" class="tip">
             <ui-icon class="tip-icon">gpp_maybe</ui-icon>
             Input your
@@ -64,6 +64,9 @@ export default {
             iconClass: 'password',
             password: ''
         }
+    },
+    created() {
+        this.$theme.primary = '#195BFF'
     },
     methods: {
         tab() {

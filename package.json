@@ -52,6 +52,7 @@
         "lint-staged": "^10.5.4",
         "native-ext-loader": "2.3.0",
         "nuxt": "2.15.4",
+        "nuxt-i18n": "^6.24.0",
         "prettier": "^2.2.1",
         "qrcode": "^1.4.4",
         "roboto-fontface": "0.10.0",

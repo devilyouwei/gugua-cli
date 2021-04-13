@@ -20,7 +20,7 @@
                     w="6"
                     class="version"
                 >
-                    Version: {{ version }}
+                    {{ $t('version') }}: {{ version }}
                 </vs-col>
             </vs-row>
         </div>
@@ -37,8 +37,10 @@ export default {
             version: ''
         }
     },
-    mounted() {
+    created() {
         this.$theme.primary = '#195BFF'
+    },
+    mounted() {
         const version = plus.version
         console.log(version)
         this.version = `${version.os}, node:${version.nodeVersion}, electron:${version.electronVersion}`

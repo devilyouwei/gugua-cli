@@ -3,6 +3,8 @@
  * This default configuration can be overwritten in this file
  * @link {https://nuxtjs.org/guide/configuration/}
  */
+const en = require('./langs/en.json')
+const zh = require('./langs/zh.json')
 
 module.exports = {
     ssr: false,
@@ -35,5 +37,20 @@ module.exports = {
         // https://go.nuxtjs.dev/stylelint
         '@nuxtjs/stylelint-module'
     ],
-    modules: []
+    modules: [
+        [
+            'nuxt-i18n',
+            {
+                locales: ['en', 'es'],
+                defaultLocale: 'en',
+                vueI18n: {
+                    fallbackLocale: 'en',
+                    messages: {
+                        en: en,
+                        zh: zh
+                    }
+                }
+            }
+        ]
+    ]
 }

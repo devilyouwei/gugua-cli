@@ -8,7 +8,6 @@
             v-model="lanMenu"
             :items="languages"
             @selected="onLanSelected"
-            @cancel="onLanCancel"
         ></ui-menu>
     </div>
 </template>
@@ -22,8 +21,11 @@ export default {
         }
     },
     methods: {
-        onLanSelected(data) {},
-        onLanCancel() {}
+        onLanSelected(data) {
+            if (data.index === 0) this.$i18n.locale = 'en'
+            else if (data.index === 1) this.$i18n.locale = 'zh'
+            else this.$i18n.locale = 'en'
+        }
     }
 }
 </script>
