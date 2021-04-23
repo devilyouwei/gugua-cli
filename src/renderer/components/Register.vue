@@ -69,6 +69,7 @@
                 animation-type="vertical"
                 class="btn"
                 success
+                @click="submit"
             >
                 Confirm
                 <template #animate>
@@ -87,6 +88,7 @@
 import VueQrcode from 'vue-qrcode'
 import crypto from 'libp2p-crypto'
 import { ipcRenderer as ipc } from 'electron'
+import $ from '../tool'
 
 export default {
     name: 'Register',
@@ -130,6 +132,25 @@ export default {
             this.privKey.text = await kp.export(this.password, 'libp2p-key')
             this.message = this.tips[1]
             this.loading = false
+        },
+        async submit() {
+            const res = await $.post('P2P', 'startP2P', {
+                privKey: this.privKey.text,
+                password: this.password
+            })
+            const opt = {
+                color: 'success',
+                position: 'top-left',
+                title: 'Success',
+                text: ''
+            }
+            opt.text = res.msg
+            if (!res.status) {
+                opt.color = 'danger'
+                opt.title = 'Error'
+                opt.text = res.msg
+            }
+            this.$vs.notification(opt)
         },
         download() {
             const qrcode = this.$refs.qrcode.childNodes[0].src

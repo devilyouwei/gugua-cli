@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import plus from '../plus'
+import plus from '../tool'
 export default {
     name: 'Index',
     data() {
@@ -42,7 +42,6 @@ export default {
     },
     mounted() {
         const version = plus.version
-        console.log(version)
         this.version = `${version.os}, node:${version.nodeVersion}, electron:${version.electronVersion}`
     },
     methods: {

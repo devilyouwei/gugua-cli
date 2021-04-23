@@ -33,6 +33,7 @@
         "@xpda-dev/electron-builder": "^0.2.1",
         "@xpda-dev/electron-launcher": "^0.3.0",
         "@xpda-dev/webpack-step": "^0.1.2",
+        "axios": "^0.21.1",
         "balm-ui": "^8.25.0",
         "boxicons": "^2.0.7",
         "browser-env": "3.3.0",
